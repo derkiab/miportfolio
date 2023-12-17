@@ -1,13 +1,13 @@
 import { createTheme } from '@mui/material/styles';
-import { blueGrey } from '@mui/material/colors';
+
 
 const spaceTheme = createTheme({
     palette: {
         primary: {
-            main: '#221550', // Dark blue
+            main: '#0a192d', // Dark blue
         },
         secondary: {
-            main: '#435015', // Light blue-grey
+            main: '#2d1d0a', // Light blue-grey
         },
         background: {
             default: '#000', // Black
