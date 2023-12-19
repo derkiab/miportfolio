@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 const LightedZone = () => {
-  const isDesktop = useMediaQuery('(min-width:600px)'); // Adjust the breakpoint as needed
+  const isDesktop = useMediaQuery('(min-width:600px)'); 
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
 
   const handleMouseMove = (e) => {
@@ -20,10 +20,10 @@ const LightedZone = () => {
         window.removeEventListener('mousemove', handleMouseMove);
       }
     };
-  }, [isDesktop]); // Add and remove event listener based on isDesktop
+  }, [isDesktop]); 
 
   if (!isDesktop) {
-    return null; // Return null if not on desktop
+    return null; 
   }
 
   return (
@@ -43,13 +43,13 @@ const LightedZone = () => {
           position: 'absolute',
           left: cursorPosition.x,
           top: cursorPosition.y,
-          width: '200px', // Adjust size as needed
-          height: '200px', // Adjust size as needed
+          width: '200px', 
+          height: '200px', 
           borderRadius: '100%',
-          backgroundColor: 'rgba(17,29,63, 0.8)', // Adjust intensity (lower alpha for lower intensity)
+          backgroundColor: 'rgba(17,29,63, 0.9)', 
           transform: 'translate(-50%, -50%)',
           pointerEvents: 'none',
-          boxShadow: '0 0 200px 200px rgba(17,29,65, 0.8)', // Adjust shadow as needed
+          boxShadow: '0 0 200px 200px rgba(17,29,65, 0.9)', 
         }}
       ></div>
     </div>
