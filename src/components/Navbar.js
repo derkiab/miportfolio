@@ -54,6 +54,9 @@ function Navbar({ setNavbarHeight }) {
             background: '#0f172a',
             opacity: 0.9,
             zIndex: 1,
+            [theme.breakpoints.down('sm')]: {
+              position: 'fixed',
+          },
           }}
         >
           <Toolbar
