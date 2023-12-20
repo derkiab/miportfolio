@@ -37,7 +37,7 @@ function Navbar({ setNavbarHeight }) {
   useEffect(() => {
     const height = navbarRef.current.offsetHeight;
     setLocalNavbarHeight(height);
-    setNavbarHeight(height); // pass the height to the parent component
+    setNavbarHeight(height); 
   }, [setLocalNavbarHeight, setNavbarHeight]);
 
   const handleDrawerToggle = () => {
@@ -52,7 +52,7 @@ function Navbar({ setNavbarHeight }) {
           position="sticky"
           sx={{
             background: '#0f172a',
-            opacity: 0.9,
+            opacity: 1,
             zIndex: 1,
             [theme.breakpoints.down('sm')]: {
               position: 'fixed',

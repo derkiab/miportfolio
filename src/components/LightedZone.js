@@ -46,10 +46,10 @@ const LightedZone = () => {
           width: '200px', 
           height: '200px', 
           borderRadius: '100%',
-          backgroundColor: 'rgba(17,29,63, 0.95)', 
+          backgroundColor: 'rgba(17,29,65, 0.9)', 
           transform: 'translate(-50%, -50%)',
           pointerEvents: 'none',
-          boxShadow: '0 0 200px 200px rgba(17,29,65, 0.95)', 
+          boxShadow: '0 0 200px 200px rgba(17,29,65, 0.9)', 
         }}
       ></div>
     </div>
