@@ -1,17 +1,17 @@
 import React, { useRef, useEffect, useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import { Link } from '@mui/material';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Slide from '@mui/material/Slide';
 import spaceTheme from '../themes/spaceTheme';
+import { Link } from 'react-scroll';
 import { ThemeProvider } from '@emotion/react';
+
 
 function HideOnScroll(props) {
   const { children, window } = props;
@@ -29,7 +29,7 @@ function HideOnScroll(props) {
 function Navbar({ setNavbarHeight }) {
   const theme = spaceTheme;
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-  const gradient = `linear-gradient(180deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`;
+  //const gradient = `linear-gradient(180deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`;
   const [drawerOpen, setDrawerOpen] = React.useState(false);
   const navbarRef = useRef(null);
   const [, setLocalNavbarHeight] = useState(0);
@@ -37,7 +37,7 @@ function Navbar({ setNavbarHeight }) {
   useEffect(() => {
     const height = navbarRef.current.offsetHeight;
     setLocalNavbarHeight(height);
-    setNavbarHeight(height); 
+    setNavbarHeight(height);
   }, [setLocalNavbarHeight, setNavbarHeight]);
 
   const handleDrawerToggle = () => {
@@ -56,7 +56,7 @@ function Navbar({ setNavbarHeight }) {
             zIndex: 1,
             [theme.breakpoints.down('sm')]: {
               position: 'fixed',
-          },
+            },
           }}
         >
           <Toolbar
@@ -71,22 +71,28 @@ function Navbar({ setNavbarHeight }) {
               component="button"
               variant="body2"
               onClick={() => {
-                
+
               }}
-              sx={{ color: 'inherit', textDecoration: 'none'}}
+              sx={{ color: 'inherit', textDecoration: 'none' }}
             >
-              <Typography
-                variant="h6"
-                sx={{
-                  fontFamily: 'Roboto, sans-serif',
-                  fontWeight: 'normal',
-                  color: '#ced4f0',
-                  transition: 'opacity 2.8s ease-in',
-                  opacity: 1,
-                }}
+              <Link
+                to="top"
+                spy={true}
+                offset={-200}
+                smooth={true}
+                duration={1000}
               >
-                Navbar
-              </Typography>
+                <img
+                  src={`${process.env.PUBLIC_URL}/logo.svg`}
+                  alt="Logo"
+                  style={{
+                    height: '40px', 
+                    width: 'auto',
+                    mt: '10px',
+                    cursor: 'pointer',
+                  }}
+                />
+              </Link>
             </Link>
             {isMobile ? (
               <>
@@ -108,13 +114,79 @@ function Navbar({ setNavbarHeight }) {
                 >
                   <List>
                     <ListItem>
-                      <Button color="secondary">Option 1</Button>
+                      <Link
+                        activeClass="active"
+                        to="acerca"
+                        spy={true}
+                        smooth={true}
+                        offset={-70}
+                        duration={500}
+                        style={{ cursor: 'pointer' }}
+                        className="nav-link"
+                      >
+                        <Button
+                          sx={{
+                            color: '#ced4f0',
+                            '&:hover': {
+                              background: 'rgba(206,212,240,0.2)',
+                              fontFamily: 'Roboto, sans-serif',
+                            },
+                          }}
+                          color="inherit"
+                        >
+                          Acerca de mí
+                        </Button>
+                      </Link>
                     </ListItem>
                     <ListItem>
-                      <Button color="inherit">Option 2</Button>
+                      <Link
+                        activeClass="active"
+                        to="tecnologia"
+                        spy={true}
+                        smooth={true}
+                        offset={-40}
+                        duration={500}
+                        style={{ cursor: 'pointer' }}
+                        className="nav-link"
+                      >
+                        <Button
+                          sx={{
+                            color: '#ced4f0',
+                            '&:hover': {
+                              background: 'rgba(206,212,240,0.2)',
+                              fontFamily: 'Roboto, sans-serif',
+                            },
+                          }}
+                          color="inherit"
+                        >
+                          Tecnologías
+                        </Button>
+                      </Link>
                     </ListItem>
                     <ListItem>
-                      <Button color="inherit">Option 3</Button>
+                      <Link
+                        activeClass="active"
+                        to="experiencia"
+                        spy={true}
+                        smooth={true}
+                        offset={-70}
+                        duration={1000}
+                        style={{ cursor: 'pointer' }}
+                        className="nav-link"
+                      >
+                        <Button
+                          sx={{
+                            color: '#ced4f0',
+                            '&:hover': {
+                              background: 'rgba(206,212,240,0.2)',
+                              fontFamily: 'Roboto, sans-serif',
+                            },
+                          }}
+                          color="inherit"
+                        >
+                          Experiencia
+                        </Button>
+                      </Link>
                     </ListItem>
                   </List>
                 </Drawer>
@@ -127,26 +199,82 @@ function Navbar({ setNavbarHeight }) {
                   flexGrow: 2,
                 }}
               >
-                <Button
-                  sx={{
-                    color: 'inherit',
-                    '&:hover': {
-                      background: gradient,
-                    },
-                  }}
-                  color="inherit"
+                <Link
+                  activeClass="active"
+                  to="acerca"
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={1000}
+                  style={{ cursor: 'pointer' }}
+                  className="nav-link"
                 >
-                  Option 1
-                </Button>
-                <Button color="inherit">Option 2</Button>
-                <Button color="inherit">Option 3</Button>
+                  <Button
+                    sx={{
+                      color: '#ced4f0',
+                      '&:hover': {
+                        background: 'rgba(206,212,240,0.2)',
+                        fontFamily: 'Roboto, sans-serif',
+                      },
+                    }}
+                    color="inherit"
+                  >
+                    Acerca de mí
+                  </Button>
+                </Link>
+                <Link
+                  activeClass="active"
+                  to="tecnologia"
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={1000}
+                  style={{ cursor: 'pointer' }}
+                  className="nav-link"
+                >
+                  <Button
+                    sx={{
+                      color: '#ced4f0',
+                      '&:hover': {
+                        background: 'rgba(206,212,240,0.2)',
+                        fontFamily: 'Roboto, sans-serif',
+                      },
+                    }}
+                    color="inherit"
+                  >
+                    Tecnologías
+                  </Button>
+                </Link>
+                <Link
+                  activeClass="active"
+                  to="experiencia"
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={1000}
+                  style={{ cursor: 'pointer' }}
+                  className="nav-link"
+                >
+                  <Button
+                    sx={{
+                      color: '#ced4f0',
+                      '&:hover': {
+                        background: 'rgba(206,212,240,0.2)',
+                        fontFamily: 'Roboto, sans-serif',
+                      },
+                    }}
+                    color="inherit"
+                  >
+                    Experiencia
+                  </Button>
+                </Link>
               </div>
             )}
             <div style={{ flexGrow: 1 }}></div>
           </Toolbar>
         </AppBar>
       </HideOnScroll>
-    </ThemeProvider>
+    </ThemeProvider >
   );
 }
 

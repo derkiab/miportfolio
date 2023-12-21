@@ -11,6 +11,7 @@ function App() {
 
   return (
     <div className="App">
+      
       <Navbar setNavbarHeight={setNavbarHeight} />
       <Description navbarHeight={navbarHeight} />
       <LightedZone />
