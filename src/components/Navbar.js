@@ -11,7 +11,8 @@ import Slide from '@mui/material/Slide';
 import spaceTheme from '../themes/spaceTheme';
 import { Link } from 'react-scroll';
 import { ThemeProvider } from '@emotion/react';
-
+import MenuIcon from '@mui/icons-material/Menu';
+import IconButton from '@mui/material/IconButton';
 
 function HideOnScroll(props) {
   const { children, window } = props;
@@ -86,7 +87,7 @@ function Navbar({ setNavbarHeight }) {
                   src={`${process.env.PUBLIC_URL}/logo.svg`}
                   alt="Logo"
                   style={{
-                    height: '40px', 
+                    height: '40px',
                     width: 'auto',
                     mt: '10px',
                     cursor: 'pointer',
@@ -103,9 +104,14 @@ function Navbar({ setNavbarHeight }) {
                     flexGrow: 15,
                   }}
                 >
-                  <Button color="inherit" onClick={handleDrawerToggle}>
-                    Menu
-                  </Button>
+                  <IconButton
+                    edge="start"
+                    color="inherit"
+                    aria-label="menu"
+                    onClick={handleDrawerToggle}
+                  >
+                    <MenuIcon />
+                  </IconButton>
                 </div>
                 <Drawer
                   anchor="right"
