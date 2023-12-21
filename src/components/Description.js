@@ -12,25 +12,25 @@ import Timeline from './Timeline';
 
 
 const technologies = [
-    { name: 'React', logo: './reactjs-icon.svg' },
-    { name: 'JavaScript', logo: './logo-javascript.svg' },
-    { name: 'CSS3', logo: './css-3.svg' },
-    { name: 'php', logo: './php-1.svg' },
-    { name: 'python', logo: './python-5.svg' },
-    { name: 'Laravel', logo: './laravel-2.svg' },
-    { name: 'Bootstrap', logo: './bootstrap-5-1.svg' },
-    { name: 'Material UI', logo: './material-ui-1.svg' },
-    { name: 'Mysql', logo: './mysql-logo.svg' },
-    { name: 'PostgreSQL', logo: './postgresql.svg' },
-    { name: 'SQL Server', logo: './sql-server.svg' },
-    { name: 'Git', logo: './git-icon.svg' },
-    { name: 'Github', logo: './github.png' },
-    { name: 'Microsoft Azure', logo: './azure-2.svg' },
-    { name: 'Microsoft 365', logo: './Microsoft-365.svg' },
-    { name: 'Microsoft Fabric', logo: './Fabric_256.svg' },
-    { name: 'Power Bi', logo: './powerbi.svg' },
-    { name: 'Power Platform', logo: './power-platform.svg' },
-    { name: 'Ubuntu', logo: './ubuntu-4.svg' },
+    { name: 'React', logo: './assets/reactjs-icon.svg' },
+    { name: 'JavaScript', logo: './assets/logo-javascript.svg' },
+    { name: 'CSS3', logo: './assets/css-3.svg' },
+    { name: 'php', logo: './assets/php-1.svg' },
+    { name: 'python', logo: './assets/python-5.svg' },
+    { name: 'Laravel', logo: './assets/laravel-2.svg' },
+    { name: 'Bootstrap', logo: './assets/bootstrap-5-1.svg' },
+    { name: 'Material UI', logo: './assets/material-ui-1.svg' },
+    { name: 'Mysql', logo: './assets/mysql-logo.svg' },
+    { name: 'PostgreSQL', logo: './assets/postgresql.svg' },
+    { name: 'SQL Server', logo: './assets/sql-server.svg' },
+    { name: 'Git', logo: './assets/git-icon.svg' },
+    { name: 'Github', logo: './assets/github.png' },
+    { name: 'Microsoft Azure', logo: './assets/azure-2.svg' },
+    { name: 'Microsoft 365', logo: './assets/Microsoft-365.svg' },
+    { name: 'Microsoft Fabric', logo: './assets/Fabric_256.svg' },
+    { name: 'Power Bi', logo: './assets/powerbi.svg' },
+    { name: 'Power Platform', logo: './assets/power-platform.svg' },
+    { name: 'Ubuntu', logo: './assets/ubuntu-4.svg' },
 
 ];
 
@@ -231,7 +231,7 @@ function Description({ navbarHeight }) {
                                 ref={refAvatar}
                                 variant='round'
                                 alt="Derqui Sanhueza"
-                                src="./img1.jpeg"
+                                src="./assets/img1.jpeg"
                                 sx={{
                                     width: '300px',
                                     height: '300px',

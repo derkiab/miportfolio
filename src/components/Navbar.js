@@ -84,7 +84,7 @@ function Navbar({ setNavbarHeight }) {
                 duration={1000}
               >
                 <img
-                  src={`${process.env.PUBLIC_URL}/logo.svg`}
+                  src={`${process.env.PUBLIC_URL}/assets/logo.svg`}
                   alt="Logo"
                   style={{
                     height: '40px',
