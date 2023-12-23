@@ -8,7 +8,13 @@ import 'react-multi-carousel/lib/styles.css';
 import { Paper } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import Timeline from './Timeline';
-
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import { CardActionArea } from '@mui/material';
+import Chip from '@mui/material/Chip';
+import Stack from '@mui/material/Stack';
+import '../App.css';
 
 
 const technologies = [
@@ -31,6 +37,8 @@ const technologies = [
     { name: 'Power Bi', logo: './assets/powerbi.svg' },
     { name: 'Power Platform', logo: './assets/power-platform.svg' },
     { name: 'Ubuntu', logo: './assets/ubuntu-4.svg' },
+    { name: 'Postman', logo: './assets/postman-icon.svg' },
+    { name: 'FastAPI', logo: './assets/fastapi.svg' },
 
 ];
 
@@ -103,6 +111,16 @@ function Description({ navbarHeight }) {
     const [refEnd, inView10] = useInView({
         triggerOnce: false,
     });
+    const [refProyectos, inView11] = useInView({
+        triggerOnce: false,
+    });
+    const [refContentProyectos, inView12] = useInView({
+        triggerOnce: false,
+    });
+
+    //const [refContentProyectosChips, inView13] = useInView({
+      //  triggerOnce: false,
+    //});
 
     return (
         <Container maxWidth="xl" sx={{ minHeight: '100%', pb: '15vh' }}>
@@ -231,14 +249,14 @@ function Description({ navbarHeight }) {
                                 ref={refAvatar}
                                 variant='round'
                                 alt="Derqui Sanhueza"
-                                src="./assets/img1.jpeg"
+                                src="./assets/logo.svg"
                                 sx={{
                                     width: '300px',
                                     height: '300px',
                                     transition: 'opacity 1.5s ease-in',
                                     ml: '4vw',
                                     mt: '0vh',
-                                    boxShadow: '0px 6px 8px rgba(0, 0, 0, 0.5)',
+                                    boxShadow: '0px 0px 0px rgba(0, 0, 0, 0.5)',
                                     opacity: inView7 ? 1 : 0,
                                     [theme.breakpoints.down('sm')]: {
                                         width: '70%',
@@ -361,7 +379,6 @@ function Description({ navbarHeight }) {
                         marginBottom: '10vh',
                     }}>
                         <Carousel
-
                             responsive={responsive}
                             autoPlay={true}
                             autoPlaySpeed={3000}
@@ -376,7 +393,6 @@ function Description({ navbarHeight }) {
                 <br />
                 <br />
                 <br />
-
                 <div id="experiencia">
                     <Typography
                         ref={refExperiencia}
@@ -408,6 +424,218 @@ function Description({ navbarHeight }) {
                     }}>
                         <Timeline />
                     </div>
+                </div>
+                <Typography
+                    ref={refProyectos}
+                    variant="h2"
+                    sx={{
+                        fontWeight: 'normal',
+                        color: '#ced4f0',
+                        fontFamily: 'Roboto, sans-serif',
+                        transition: 'opacity 0.8s ease-out, transform 0.8s ease-out',
+                        opacity: inView11 ? 1 : 0,
+                        transform: inView11 ? 'translateX(0)' : 'translateX(-200px)',
+                        textShadow: inView11 ? '0px 4px 4px rgba(0, 0, 0, 0.5)' : 'none',
+                        pt: '5vh',
+                        mt: '20vh',
+                        mb: '12vh',
+                        [theme.breakpoints.down('sm')]: {
+                            fontSize: '1.6rem',
+                            mt: '15vh'
+                        },
+                    }}
+                >
+                    Proyectos
+                </Typography>
+                <div id="proyectos" >
+
+                    <Grid ref={refContentProyectos} container spacing={4} sx={{ mb: '20vh' }}>
+                        {/* First column - on extra small and small screens, take up 12 columns (full width) */}
+                        <Grid item xs={12} sm={6}>
+                            <Paper elevation={6} sx={{
+
+                                padding: '1px', textAlign: 'center',
+                                backgroundColor: '#5e828b',
+                                '&:hover': {
+                                    transform: 'scale(1.06)', // Make it 10% bigger on hover
+                                },
+                                opacity: inView12 ? 1 : 0,
+                                transition: 'opacity 2.5s ease-in, transform 1.8s ease-out',
+                                transform: inView12 ? 'translateX(0)' : 'translateX(-300px)',
+                                
+
+                            }} >
+                                <Card sx={{
+                                    width: '100%',
+                                    backgroundColor: '#0f172a',
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+
+                                }}>
+                                    <CardActionArea sx={{}}>
+                                        <CardMedia
+                                            component="div"
+                                            className="myCardMedia"
+                                            sx={{
+                                                position: 'relative',
+                                                height: '200px',
+                                                background: 'radial-gradient( #53cdc2, rgb(18,45,65))',
+                                                opacity: 0.8,
+                                                backdropFilter: 'blur(8px)',
+                                                display: 'flex',
+                                                justifyContent: 'center',
+                                                alignItems: 'center',
+                                                textAlign: 'center',
+                                                '&::before': {
+                                                    content: '""',
+                                                    position: 'absolute',
+                                                    top: 0,
+                                                    right: 0,
+                                                    bottom: 0,
+                                                    left: 0,
+                                                    background: 'inherit',
+                                                    zIndex: -1,
+                                                },
+                                            }}
+
+                                        >
+                                            <h1 style={{
+                                                margin: '0',
+                                                color: '#fff',
+                                            }}>Portfolio</h1>
+                                        </CardMedia>
+                                        <CardContent sx={{
+
+                                        }}>
+                                            <Typography
+                                                gutterBottom
+                                                variant="h5"
+                                                component="div"
+                                                sx={{
+                                                    fontFamily: 'Roboto, sans-serif',
+                                                    color: '#ced4f0',
+
+                                                }}
+                                            >
+                                                Portfolio
+                                            </Typography>
+                                            <Typography
+                                                variant="body2"
+                                                color="text.secondary"
+                                                sx={{
+                                                    fontFamily: 'Roboto, sans-serif',
+                                                    color: '#ced4f0',
+                                                }}
+                                            >
+                                                Portfolio es donde se encuentra ahora mismo, una página web creada con React y Material-UI, alojada en Azure Static Web Apps.
+                                            </Typography>
+                                        </CardContent>
+                                    </CardActionArea>
+                                </Card>
+
+                            </Paper>
+                            <Stack ref={refContentProyectosChips} direction="row" spacing={2}
+                                sx={{
+                                    ml: '0vh',
+                                    mt: '3vh',
+                                   
+                                    opacity: inView12 ? 1 : 0,
+                                    transition: 'opacity 2.5s ease-in, transform 1.8s ease-out',
+                                    transform: inView12 ? 'translateX(0)' : 'translateX(-500px)',
+                                }}>
+                                <Chip label="React" variant="filled" sx={{ color: '#53cdc2', backgroundColor: 'rgba(18,45,65,0.9)' }} />
+                                <Chip label="Material-UI" variant="filled" sx={{ color: '#53cdc2', backgroundColor: 'rgba(18,45,65,0.9)' }} />
+                                <Chip label="Azure" variant="filled" sx={{ color: '#53cdc2', backgroundColor: 'rgba(18,45,65,0.9)' }} />
+                            </Stack>
+                        </Grid>
+
+                        {/* Second column - on extra small and small screens, take up 12 columns (full width) */}
+                        <Grid item xs={12} sm={6}>
+                            <Paper elevation={6} sx={{
+                                padding: '1px', textAlign: 'center',
+                                backgroundColor: '#5e828b',
+                                '&:hover': {
+                                    transform: 'scale(1.06)', // Make it 10% bigger on hover
+                                },
+                                opacity: inView12 ? 1 : 0,
+                                transition: 'opacity 2.5s ease-in, transform 1.8s ease-out',
+                                transform: inView12 ? 'translateX(0)' : 'translateX(-300px)',
+                            }} >
+                                <Card sx={{
+                                    width: '100%',
+                                    backgroundColor: '#0f172a',
+                                }}>
+                                    <CardActionArea sx={{}}>
+                                        <CardMedia
+                                            component="div"
+                                            className="myCardMedia"
+                                            sx={{
+                                                position: 'relative',
+                                                height: '200px',
+                                                background: 'radial-gradient( #53cdc2, rgb(18,45,65))',
+                                                opacity: 0.8,
+                                                backdropFilter: 'blur(8px)',
+                                                display: 'flex',
+                                                justifyContent: 'center',
+                                                alignItems: 'center',
+                                                textAlign: 'center',
+                                                '&::before': {
+                                                    content: '""',
+                                                    position: 'absolute',
+                                                    top: 0,
+                                                    right: 0,
+                                                    bottom: 0,
+                                                    left: 0,
+                                                    background: 'inherit',
+                                                    zIndex: -1,
+                                                },
+                                            }}
+                                        >
+                                            <h1 style={{
+                                                margin: '0',
+                                                color: '#fff',
+                                            }}>astroAPI</h1>
+                                        </CardMedia>
+                                        <CardContent sx={{
+                                        }}>
+                                            <Typography
+                                                gutterBottom
+                                                variant="h5"
+                                                component="div"
+                                                sx={{
+                                                    fontFamily: 'Roboto, sans-serif',
+                                                    color: '#ced4f0',
+                                                }}
+                                            >
+                                                astroAPI
+                                            </Typography>
+                                            <Typography
+                                                variant="body2"
+                                                color="text.secondary"
+                                                sx={{
+                                                    fontFamily: 'Roboto, sans-serif',
+                                                    color: '#ced4f0',
+                                                }}
+                                            >
+                                                astroAPI es una API REST creada con FastAPI, alojada en Azure Functions. Esta API entrega información astronómica en tiempo real.
+                                            </Typography>
+                                        </CardContent>
+                                    </CardActionArea>
+                                </Card>
+                            </Paper>
+                            <Stack ref={refContentProyectosChips} direction="row" spacing={2}
+                                sx={{
+                                    ml: '0vh', mt: '3vh',
+                                    opacity: inView12 ? 1 : 0,
+                                    transition: 'opacity 2.5s ease-in, transform 1.8s ease-out',
+                                    transform: inView12 ? 'translateX(0)' : 'translateX(-300px)',
+                                }}>
+                                <Chip label="Python" variant="filled" sx={{ color: '#53cdc2', backgroundColor: 'rgba(18,45,65,0.9)' }} />
+                                <Chip label="FastAPI" variant="filled" sx={{ color: '#53cdc2', backgroundColor: 'rgba(18,45,65,0.9)' }} />
+                                <Chip label="Azure" variant="filled" sx={{ color: '#53cdc2', backgroundColor: 'rgba(18,45,65,0.9)' }} />
+                            </Stack>
+                        </Grid>
+                    </Grid>
                 </div>
                 <Typography
                     variant="h10"

@@ -79,7 +79,7 @@ function Navbar({ setNavbarHeight }) {
               <Link
                 to="top"
                 spy={true}
-                offset={-200}
+                offset={-330}
                 smooth={true}
                 duration={1000}
               >
@@ -175,7 +175,7 @@ function Navbar({ setNavbarHeight }) {
                         to="experiencia"
                         spy={true}
                         smooth={true}
-                        offset={-70}
+                        offset={-30}
                         duration={1000}
                         style={{ cursor: 'pointer' }}
                         className="nav-link"
@@ -191,6 +191,31 @@ function Navbar({ setNavbarHeight }) {
                           color="inherit"
                         >
                           Experiencia
+                        </Button>
+                      </Link>
+                    </ListItem>
+                    <ListItem>
+                      <Link
+                        activeClass="active"
+                        to="proyectos"
+                        spy={true}
+                        smooth={true}
+                        offset={-120}
+                        duration={1000}
+                        style={{ cursor: 'pointer' }}
+                        className="nav-link"
+                      >
+                        <Button
+                          sx={{
+                            color: '#ced4f0',
+                            '&:hover': {
+                              background: 'rgba(206,212,240,0.2)',
+                              fontFamily: 'Roboto, sans-serif',
+                            },
+                          }}
+                          color="inherit"
+                        >
+                          Proyectos
                         </Button>
                       </Link>
                     </ListItem>
@@ -274,6 +299,30 @@ function Navbar({ setNavbarHeight }) {
                     Experiencia
                   </Button>
                 </Link>
+                <Link
+                  activeClass="active"
+                  to="proyectos"
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={1000}
+                  style={{ cursor: 'pointer' }}
+                  className="nav-link"
+                >
+                  <Button
+                    sx={{
+                      color: '#ced4f0',
+                      '&:hover': {
+                        background: 'rgba(206,212,240,0.2)',
+                        fontFamily: 'Roboto, sans-serif',
+                      },
+                    }}
+                    color="inherit"
+                  >
+                    Proyectos
+                  </Button>
+                </Link>
+
               </div>
             )}
             <div style={{ flexGrow: 1 }}></div>
