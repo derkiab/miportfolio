@@ -54,7 +54,7 @@ const VerticalTimeline = () => {
           cardSubtitle: '1.2rem',
           cardText: '1rem',
           cardTitle: '1.3rem',
-          title: '1rem',
+          title: '0.9rem',
           cardDetailedText: '1.2rem',
         }}
       />
