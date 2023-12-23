@@ -534,7 +534,7 @@ function Description({ navbarHeight }) {
                                 </Card>
 
                             </Paper>
-                            <Stack ref={refContentProyectosChips} direction="row" spacing={2}
+                            <Stack ref={refContentProyectos} direction="row" spacing={2}
                                 sx={{
                                     ml: '0vh',
                                     mt: '3vh',
@@ -623,7 +623,7 @@ function Description({ navbarHeight }) {
                                     </CardActionArea>
                                 </Card>
                             </Paper>
-                            <Stack ref={refContentProyectosChips} direction="row" spacing={2}
+                            <Stack ref={refContentProyectos} direction="row" spacing={2}
                                 sx={{
                                     ml: '0vh', mt: '3vh',
                                     opacity: inView12 ? 1 : 0,
