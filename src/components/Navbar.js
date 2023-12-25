@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
@@ -10,6 +10,7 @@ import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Slide from '@mui/material/Slide';
 import spaceTheme from '../themes/spaceTheme';
 import { Link } from 'react-scroll';
+
 import { ThemeProvider } from '@emotion/react';
 import MenuIcon from '@mui/icons-material/Menu';
 import IconButton from '@mui/material/IconButton';
@@ -27,19 +28,13 @@ function HideOnScroll(props) {
   );
 }
 
-function Navbar({ setNavbarHeight }) {
+function Navbar() {
   const theme = spaceTheme;
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   //const gradient = `linear-gradient(180deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`;
   const [drawerOpen, setDrawerOpen] = React.useState(false);
-  const navbarRef = useRef(null);
-  const [, setLocalNavbarHeight] = useState(0);
-
-  useEffect(() => {
-    const height = navbarRef.current.offsetHeight;
-    setLocalNavbarHeight(height);
-    setNavbarHeight(height);
-  }, [setLocalNavbarHeight, setNavbarHeight]);
+  
+  
 
   const handleDrawerToggle = () => {
     setDrawerOpen(!drawerOpen);
@@ -49,7 +44,7 @@ function Navbar({ setNavbarHeight }) {
     <ThemeProvider theme={spaceTheme}>
       <HideOnScroll>
         <AppBar
-          ref={navbarRef}
+          
           position="sticky"
           sx={{
             background: '#0f172a',
@@ -81,7 +76,7 @@ function Navbar({ setNavbarHeight }) {
                 spy={true}
                 offset={-330}
                 smooth={true}
-                duration={1000}
+                duration={500}
               >
                 <img
                   src={`${process.env.PUBLIC_URL}/assets/logo.svg`}
@@ -126,7 +121,7 @@ function Navbar({ setNavbarHeight }) {
                         spy={true}
                         smooth={true}
                         offset={-70}
-                        duration={500}
+                        duration={1000}
                         style={{ cursor: 'pointer' }}
                         className="nav-link"
                       >
@@ -151,7 +146,7 @@ function Navbar({ setNavbarHeight }) {
                         spy={true}
                         smooth={true}
                         offset={-40}
-                        duration={500}
+                        duration={1000}
                         style={{ cursor: 'pointer' }}
                         className="nav-link"
                       >

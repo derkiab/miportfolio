@@ -15,6 +15,7 @@ import { CardActionArea } from '@mui/material';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import { Link } from 'react-router-dom';
 import '../App.css';
 
 
@@ -79,7 +80,7 @@ function Technology({ technology }) {
     );
 }
 
-function Description({ navbarHeight }) {
+function Description() {
 
     
     const theme = useTheme();
@@ -130,7 +131,7 @@ function Description({ navbarHeight }) {
             <Box
                 sx={{
                     position: 'relative',
-                    top: `calc(-${navbarHeight}px + 10vh)`,
+                    
 
                     bgcolor: 'rgba(15,23,42,0.0)',
                     height: '100%',
@@ -569,7 +570,7 @@ function Description({ navbarHeight }) {
                                     width: '100%',
                                     backgroundColor: '#0f172a',
                                 }}>
-                                    <CardActionArea sx={{}}>
+                                    <CardActionArea component={Link} to="/api-usage" sx={{}}>
                                         <CardMedia
                                             component="div"
                                             className="myCardMedia"
