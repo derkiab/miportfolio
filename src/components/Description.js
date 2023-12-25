@@ -14,6 +14,7 @@ import CardMedia from '@mui/material/CardMedia';
 import { CardActionArea } from '@mui/material';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import '../App.css';
 
 
@@ -80,7 +81,9 @@ function Technology({ technology }) {
 
 function Description({ navbarHeight }) {
 
+    
     const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const [refNombre, inView1] = useInView({
         triggerOnce: false,
     });
@@ -136,6 +139,7 @@ function Description({ navbarHeight }) {
                     [theme.breakpoints.down('sm')]: {
                         pt: '5vh',
                         pl: '4vw',
+                        mx: '0vw'
                     },
                 }}
             >
