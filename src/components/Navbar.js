@@ -152,7 +152,6 @@ function Navbar() {
                               height: '15px',
                               width: 'auto',
                               mt: '10px',
-
                             }}
                           />
                         </Stack>
