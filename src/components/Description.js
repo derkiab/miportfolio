@@ -14,9 +14,6 @@ import CardMedia from '@mui/material/CardMedia';
 import { CardActionArea } from '@mui/material';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
-import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import LanguageProvider from './LanguageProvider';
 import '../App.css';
 
 
@@ -44,8 +41,6 @@ const technologies = [
     { name: 'FastAPI', logo: './assets/fastapi.svg' },
 
 ];
-
-
 
 const responsive = {
     superLargeDesktop: {
@@ -83,11 +78,9 @@ function Technology({ technology }) {
     );
 }
 
-function Description() {
+function Description({ navbarHeight }) {
 
-    const { t } = useTranslation();
     const theme = useTheme();
-
     const [refNombre, inView1] = useInView({
         triggerOnce: false,
     });
@@ -126,7 +119,7 @@ function Description() {
     });
 
     //const [refContentProyectosChips, inView13] = useInView({
-    //  triggerOnce: false,
+      //  triggerOnce: false,
     //});
 
     return (
@@ -134,7 +127,7 @@ function Description() {
             <Box
                 sx={{
                     position: 'relative',
-
+                    top: `calc(-${navbarHeight}px + 10vh)`,
 
                     bgcolor: 'rgba(15,23,42,0.0)',
                     height: '100%',
@@ -143,7 +136,6 @@ function Description() {
                     [theme.breakpoints.down('sm')]: {
                         pt: '5vh',
                         pl: '4vw',
-                        mx: '0vw'
                     },
                 }}
             >
@@ -186,15 +178,15 @@ function Description() {
                                     },
                                 }}
                             >
-                                {t('graduation')}
+                                Licenciado en Ciencias de la Ingeniería
                                 <br />
-                                {t('title')}
+                                Ingeniero Civil Informático
                             </Typography>
                             <IconButton
                                 sx={{
                                     mt: '14vh',
                                     position: 'relative',
-                                    left: '-10px',
+                                    left: '0vw',
                                     transition: 'opacity 0.8s ease-out, transform 1.8s ease-out',
                                     opacity: inView1 ? 1 : 0,
                                     transform: inView1 ? 'translateX(0)' : 'translateX(-300px)',
@@ -303,7 +295,7 @@ function Description() {
                             },
                         }}
                     >
-                        {t('aboutMeTitle')}
+                        Acerca de mí
                     </Typography>
                     <Typography
                         variant="h5"
@@ -322,14 +314,16 @@ function Description() {
                             },
                         }}
                     >
-                        {t('earlyLifeAndEducation')}
-                        {t('aboutMe')}
+                        Nacido y criado en la hermosa comuna costera de Talcahuano, mi pasión por la tecnología se despertó desde una temprana edad. Este interés se consolidó durante mis años de estudio en el Colegio Salesiano de Concepción, donde me especialicé en electrónica.
                         <br />
                         <br />
-                        {t('freeTimeActivities')}
+                        Actualmente, me encuentro sumergido en el apasionante campo de la ingeniería informática. Me entusiasma la posibilidad de utilizar mis habilidades y conocimientos en tecnologías de la información para abordar y resolver desafíos del mundo real. Estoy convencido de que la tecnología tiene el potencial de mejorar significativamente nuestras vidas, y me llena de emoción ser parte activa de este emocionante viaje.
                         <br />
                         <br />
-                        {t('lifeLearnings')}
+                        En mi tiempo libre, disfruto del Sim-racing, un hobby que combina mi amor por la tecnología y la emoción de la competición. También me encanta pasar tiempo jugando videojuegos con mis amigos, creando recuerdos y compartiendo risas.
+                        <br />
+                        <br />
+                        A lo largo de mi vida, he aprendido que la pasión y el trabajo duro son fundamentales para superar los obstáculos. En el campo de la ingeniería informática, estoy consciente de que el futuro traerá tanto oportunidades como desafíos. Con una mezcla de anticipación y respeto por las dificultades que puedan surgir, estoy preparado para enfrentar lo que venga.
                     </Typography>
                 </div>
                 <div id="tecnologia">
@@ -352,7 +346,7 @@ function Description() {
                             },
                         }}
                     >
-                        {t('navTechnologies')}
+                        Tecnologías
                     </Typography>
                     <Typography
                         variant="h5"
@@ -373,10 +367,10 @@ function Description() {
                             },
                         }}
                     >
-                        {t('technologiesContent')}
+                        Mi experiencia en el campo de la ingeniería informática es amplia y diversa. He tenido la oportunidad de participar en todas las etapas de un proyecto informático, desde la concepción de la idea hasta su implementación y despliegue.
                         <br />
                         <br />
-                        {t('technologiesContent2')}
+                        Gracias a esta experiencia, estoy familiarizado con una amplia gama de tecnologías, lo que me permite adaptarme a diferentes entornos y desafíos
                     </Typography>
                     <div ref={refCarousel} style={{
                         opacity: inView6 ? 1 : 0,
@@ -420,7 +414,7 @@ function Description() {
                             },
                         }}
                     >
-                        {t('navExperience')}
+                        Experiencia
                     </Typography>
                     <div ref={refTimeline} style={{
                         opacity: inView9 ? 1 : 0,
@@ -428,10 +422,7 @@ function Description() {
                         transform: inView9 ? 'translateX(0)' : 'translateX(-300px)',
                         marginBottom: '10vh',
                     }}>
-                        <LanguageProvider>
-                            <Timeline />
-                        </LanguageProvider>
-
+                        <Timeline />
                     </div>
                 </div>
                 <Typography
@@ -454,7 +445,7 @@ function Description() {
                         },
                     }}
                 >
-                    {t('navProjects')}
+                    Proyectos
                 </Typography>
                 <div id="proyectos" >
 
@@ -471,7 +462,7 @@ function Description() {
                                 opacity: inView12 ? 1 : 0,
                                 transition: 'opacity 2.5s ease-in, transform 1.8s ease-out',
                                 transform: inView12 ? 'translateX(0)' : 'translateX(-300px)',
-
+                                
 
                             }} >
                                 <Card sx={{
@@ -511,7 +502,7 @@ function Description() {
                                             <h1 style={{
                                                 margin: '0',
                                                 color: '#fff',
-                                            }}>{t('PortfolioTitle')}</h1>
+                                            }}>Portfolio</h1>
                                         </CardMedia>
                                         <CardContent sx={{
 
@@ -526,7 +517,7 @@ function Description() {
 
                                                 }}
                                             >
-                                                {t('PortfolioTitle')}
+                                                Portfolio
                                             </Typography>
                                             <Typography
                                                 variant="body2"
@@ -536,7 +527,7 @@ function Description() {
                                                     color: '#ced4f0',
                                                 }}
                                             >
-                                                {t('PortfolioContent')}
+                                                Portfolio es donde se encuentra ahora mismo, una página web creada con React y Material-UI, alojada en Azure Static Web Apps.
                                             </Typography>
                                         </CardContent>
                                     </CardActionArea>
@@ -547,7 +538,7 @@ function Description() {
                                 sx={{
                                     ml: '0vh',
                                     mt: '3vh',
-
+                                   
                                     opacity: inView12 ? 1 : 0,
                                     transition: 'opacity 2.5s ease-in, transform 1.8s ease-out',
                                     transform: inView12 ? 'translateX(0)' : 'translateX(-500px)',
@@ -574,7 +565,7 @@ function Description() {
                                     width: '100%',
                                     backgroundColor: '#0f172a',
                                 }}>
-                                    <CardActionArea component={Link} to="/api-usage" sx={{}}>
+                                    <CardActionArea sx={{}}>
                                         <CardMedia
                                             component="div"
                                             className="myCardMedia"
@@ -616,7 +607,7 @@ function Description() {
                                                     color: '#ced4f0',
                                                 }}
                                             >
-                                                {t('astroApiTitle')}
+                                                astroAPI
                                             </Typography>
                                             <Typography
                                                 variant="body2"
@@ -626,7 +617,7 @@ function Description() {
                                                     color: '#ced4f0',
                                                 }}
                                             >
-                                                {t('astroApiContent')}
+                                                astroAPI es una API REST creada con FastAPI, alojada en Azure Functions. Esta API entrega información astronómica en tiempo real.
                                             </Typography>
                                         </CardContent>
                                     </CardActionArea>

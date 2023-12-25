@@ -1,34 +1,21 @@
+
 import './App.css';
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Description from './components/Description';
 import LightedZone from './components/LightedZone';
-import ApiUsage from './components/ApiUsage';
-import LanguageProvider from './components/LanguageProvider';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
 
 function App() {
-
+  const [navbarHeight, setNavbarHeight] = useState(0);
 
   return (
-
     <div className="App">
-      <Router>
-        <Routes>
-          <Route path="/api-usage" element={<ApiUsage />} />
-          <Route path="/" element={
-            <>
-              <LanguageProvider>
-                <Navbar />
-                <Description />
-                <LightedZone />
-              </LanguageProvider>
-            </>
-          } />
-        </Routes>
-      </Router>
+      
+      <Navbar setNavbarHeight={setNavbarHeight} />
+      <Description navbarHeight={navbarHeight} />
+      <LightedZone />
     </div>
-
   );
 }
 

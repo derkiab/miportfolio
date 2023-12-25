@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
@@ -13,11 +13,6 @@ import { Link } from 'react-scroll';
 import { ThemeProvider } from '@emotion/react';
 import MenuIcon from '@mui/icons-material/Menu';
 import IconButton from '@mui/material/IconButton';
-import FormGroup from '@mui/material/FormGroup';
-import { LanguageContext } from './LanguageContext';
-import AntSwitch from '@mui/material/Switch';
-import Stack from '@mui/material/Stack';
-import { useTranslation } from 'react-i18next';
 
 function HideOnScroll(props) {
   const { children, window } = props;
@@ -26,24 +21,26 @@ function HideOnScroll(props) {
   });
 
   return (
-    <Slide appear={false} direction="down" in={!trigger} >
+    <Slide appear={false} direction="down" in={!trigger}>
       {children}
     </Slide>
   );
 }
 
-function Navbar() {
-
-  const { i18n } = useContext(LanguageContext);
-  const handleLanguageChange = (event) => {
-    i18n.changeLanguage(event.target.checked ? 'en' : 'es');
-
-  };
-  const { t } = useTranslation();
+function Navbar({ setNavbarHeight }) {
   const theme = spaceTheme;
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   //const gradient = `linear-gradient(180deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`;
   const [drawerOpen, setDrawerOpen] = React.useState(false);
+  const navbarRef = useRef(null);
+  const [, setLocalNavbarHeight] = useState(0);
+
+  useEffect(() => {
+    const height = navbarRef.current.offsetHeight;
+    setLocalNavbarHeight(height);
+    setNavbarHeight(height);
+  }, [setLocalNavbarHeight, setNavbarHeight]);
+
   const handleDrawerToggle = () => {
     setDrawerOpen(!drawerOpen);
   };
@@ -52,7 +49,7 @@ function Navbar() {
     <ThemeProvider theme={spaceTheme}>
       <HideOnScroll>
         <AppBar
-
+          ref={navbarRef}
           position="sticky"
           sx={{
             background: '#0f172a',
@@ -84,7 +81,7 @@ function Navbar() {
                 spy={true}
                 offset={-330}
                 smooth={true}
-                duration={500}
+                duration={1000}
               >
                 <img
                   src={`${process.env.PUBLIC_URL}/assets/logo.svg`}
@@ -123,49 +120,13 @@ function Navbar() {
                 >
                   <List>
                     <ListItem>
-                      <FormGroup>
-                        <Stack sx={{ pl: '1vw' }} direction="row" spacing={2} alignItems="center">
-                          <img
-                            src={`${process.env.PUBLIC_URL}/assets/es.svg`}
-                            alt="Logo"
-                            style={{
-                              height: '15px',
-                              width: 'auto',
-                              mt: '10px',
-
-                            }}
-                          />
-                          <AntSwitch
-                            style={{
-
-                              color: i18n.language === 'en' ? '#53cdc2' : '#53cdc2',
-                              backgroundColor: i18n.language === 'en' ? 'rgba(18,45,65,0.9)' : 'rgba(18,45,65,0.9)'
-                            }} checked={i18n.language === 'en'}
-                            onChange={handleLanguageChange}
-                            name="languageSwitch"
-                            inputProps={{ 'aria-label': 'ant design' }} />
-
-                          <img
-                            src={`${process.env.PUBLIC_URL}/assets/gb.svg`}
-                            alt="Logo"
-                            style={{
-                              height: '15px',
-                              width: 'auto',
-                              mt: '10px',
-
-                            }}
-                          />
-                        </Stack>
-                      </FormGroup>
-                    </ListItem>
-                    <ListItem>
                       <Link
                         activeClass="active"
                         to="acerca"
                         spy={true}
                         smooth={true}
                         offset={-70}
-                        duration={1000}
+                        duration={500}
                         style={{ cursor: 'pointer' }}
                         className="nav-link"
                       >
@@ -179,7 +140,7 @@ function Navbar() {
                           }}
                           color="inherit"
                         >
-                          {t('navAboutMe')}
+                          Acerca de mí
                         </Button>
                       </Link>
                     </ListItem>
@@ -190,7 +151,7 @@ function Navbar() {
                         spy={true}
                         smooth={true}
                         offset={-40}
-                        duration={1000}
+                        duration={500}
                         style={{ cursor: 'pointer' }}
                         className="nav-link"
                       >
@@ -204,7 +165,7 @@ function Navbar() {
                           }}
                           color="inherit"
                         >
-                          {t('navTechnologies')}
+                          Tecnologías
                         </Button>
                       </Link>
                     </ListItem>
@@ -229,7 +190,7 @@ function Navbar() {
                           }}
                           color="inherit"
                         >
-                          {t('navExperience')}
+                          Experiencia
                         </Button>
                       </Link>
                     </ListItem>
@@ -254,11 +215,10 @@ function Navbar() {
                           }}
                           color="inherit"
                         >
-                          {t('navProjects')}
+                          Proyectos
                         </Button>
                       </Link>
                     </ListItem>
-
                   </List>
                 </Drawer>
               </>
@@ -267,8 +227,7 @@ function Navbar() {
                 style={{
                   display: 'flex',
                   justifyContent: 'center',
-                  flexGrow: 0.8,
-                  paddingLeft: '6vw',
+                  flexGrow: 2,
                 }}
               >
                 <Link
@@ -291,7 +250,7 @@ function Navbar() {
                     }}
                     color="inherit"
                   >
-                    {t('navAboutMe')}
+                    Acerca de mí
                   </Button>
                 </Link>
                 <Link
@@ -314,7 +273,7 @@ function Navbar() {
                     }}
                     color="inherit"
                   >
-                    {t('navTechnologies')}
+                    Tecnologías
                   </Button>
                 </Link>
                 <Link
@@ -337,7 +296,7 @@ function Navbar() {
                     }}
                     color="inherit"
                   >
-                    {t('navExperience')}
+                    Experiencia
                   </Button>
                 </Link>
                 <Link
@@ -360,43 +319,10 @@ function Navbar() {
                     }}
                     color="inherit"
                   >
-                    {t('navProjects')}
+                    Proyectos
                   </Button>
                 </Link>
-                <FormGroup>
-                  <Stack sx={{ pl: '7vw' }} direction="row" spacing={2} alignItems="center">
-                    <img
-                      src={`${process.env.PUBLIC_URL}/assets/es.svg`}
-                      alt="Logo"
-                      style={{
-                        height: '15px',
-                        width: 'auto',
-                        mt: '10px',
 
-                      }}
-                    />
-                    <AntSwitch
-                      style={{
-
-                        color: i18n.language === 'en' ? '#53cdc2' : '#53cdc2',
-                        backgroundColor: i18n.language === 'en' ? 'rgba(18,45,65,0.9)' : 'rgba(18,45,65,0.9)'
-                      }} checked={i18n.language === 'en'}
-                      onChange={handleLanguageChange}
-                      name="languageSwitch"
-                      inputProps={{ 'aria-label': 'ant design' }} />
-
-                    <img
-                      src={`${process.env.PUBLIC_URL}/assets/gb.svg`}
-                      alt="Logo"
-                      style={{
-                        height: '15px',
-                        width: 'auto',
-                        mt: '10px',
-
-                      }}
-                    />
-                  </Stack>
-                </FormGroup>
               </div>
             )}
             <div style={{ flexGrow: 1 }}></div>
