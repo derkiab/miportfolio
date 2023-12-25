@@ -179,7 +179,7 @@ function Navbar() {
                           }}
                           color="inherit"
                         >
-                          Acerca de mí
+                          {t('navAboutMe')}
                         </Button>
                       </Link>
                     </ListItem>
@@ -204,7 +204,7 @@ function Navbar() {
                           }}
                           color="inherit"
                         >
-                          Tecnologías
+                          {t('navTechnologies')}
                         </Button>
                       </Link>
                     </ListItem>
@@ -229,7 +229,7 @@ function Navbar() {
                           }}
                           color="inherit"
                         >
-                          Experiencia
+                          {t('navExperience')}
                         </Button>
                       </Link>
                     </ListItem>
@@ -254,7 +254,7 @@ function Navbar() {
                           }}
                           color="inherit"
                         >
-                          Proyectos
+                          {t('navProjects')}
                         </Button>
                       </Link>
                     </ListItem>
