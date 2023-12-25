@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
@@ -10,10 +10,14 @@ import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Slide from '@mui/material/Slide';
 import spaceTheme from '../themes/spaceTheme';
 import { Link } from 'react-scroll';
-
 import { ThemeProvider } from '@emotion/react';
 import MenuIcon from '@mui/icons-material/Menu';
 import IconButton from '@mui/material/IconButton';
+import FormGroup from '@mui/material/FormGroup';
+import { LanguageContext } from './LanguageContext';
+import AntSwitch from '@mui/material/Switch';
+import Stack from '@mui/material/Stack';
+import { useTranslation } from 'react-i18next';
 
 function HideOnScroll(props) {
   const { children, window } = props;
@@ -22,20 +26,24 @@ function HideOnScroll(props) {
   });
 
   return (
-    <Slide appear={false} direction="down" in={!trigger}>
+    <Slide appear={false} direction="down" in={!trigger} >
       {children}
     </Slide>
   );
 }
 
 function Navbar() {
+
+  const { i18n } = useContext(LanguageContext);
+  const handleLanguageChange = (event) => {
+    i18n.changeLanguage(event.target.checked ? 'en' : 'es');
+
+  };
+  const { t } = useTranslation();
   const theme = spaceTheme;
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   //const gradient = `linear-gradient(180deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`;
   const [drawerOpen, setDrawerOpen] = React.useState(false);
-  
-  
-
   const handleDrawerToggle = () => {
     setDrawerOpen(!drawerOpen);
   };
@@ -44,7 +52,7 @@ function Navbar() {
     <ThemeProvider theme={spaceTheme}>
       <HideOnScroll>
         <AppBar
-          
+
           position="sticky"
           sx={{
             background: '#0f172a',
@@ -114,6 +122,42 @@ function Navbar() {
                   onClose={handleDrawerToggle}
                 >
                   <List>
+                    <ListItem>
+                      <FormGroup>
+                        <Stack sx={{ pl: '1vw' }} direction="row" spacing={2} alignItems="center">
+                          <img
+                            src={`${process.env.PUBLIC_URL}/assets/es.svg`}
+                            alt="Logo"
+                            style={{
+                              height: '15px',
+                              width: 'auto',
+                              mt: '10px',
+
+                            }}
+                          />
+                          <AntSwitch
+                            style={{
+
+                              color: i18n.language === 'en' ? '#53cdc2' : '#53cdc2',
+                              backgroundColor: i18n.language === 'en' ? 'rgba(18,45,65,0.9)' : 'rgba(18,45,65,0.9)'
+                            }} checked={i18n.language === 'en'}
+                            onChange={handleLanguageChange}
+                            name="languageSwitch"
+                            inputProps={{ 'aria-label': 'ant design' }} />
+
+                          <img
+                            src={`${process.env.PUBLIC_URL}/assets/gb.svg`}
+                            alt="Logo"
+                            style={{
+                              height: '15px',
+                              width: 'auto',
+                              mt: '10px',
+
+                            }}
+                          />
+                        </Stack>
+                      </FormGroup>
+                    </ListItem>
                     <ListItem>
                       <Link
                         activeClass="active"
@@ -214,6 +258,7 @@ function Navbar() {
                         </Button>
                       </Link>
                     </ListItem>
+
                   </List>
                 </Drawer>
               </>
@@ -222,7 +267,8 @@ function Navbar() {
                 style={{
                   display: 'flex',
                   justifyContent: 'center',
-                  flexGrow: 2,
+                  flexGrow: 0.8,
+                  paddingLeft: '6vw',
                 }}
               >
                 <Link
@@ -245,7 +291,7 @@ function Navbar() {
                     }}
                     color="inherit"
                   >
-                    Acerca de mí
+                    {t('navAboutMe')}
                   </Button>
                 </Link>
                 <Link
@@ -268,7 +314,7 @@ function Navbar() {
                     }}
                     color="inherit"
                   >
-                    Tecnologías
+                    {t('navTechnologies')}
                   </Button>
                 </Link>
                 <Link
@@ -291,7 +337,7 @@ function Navbar() {
                     }}
                     color="inherit"
                   >
-                    Experiencia
+                    {t('navExperience')}
                   </Button>
                 </Link>
                 <Link
@@ -314,10 +360,43 @@ function Navbar() {
                     }}
                     color="inherit"
                   >
-                    Proyectos
+                    {t('navProjects')}
                   </Button>
                 </Link>
+                <FormGroup>
+                  <Stack sx={{ pl: '7vw' }} direction="row" spacing={2} alignItems="center">
+                    <img
+                      src={`${process.env.PUBLIC_URL}/assets/es.svg`}
+                      alt="Logo"
+                      style={{
+                        height: '15px',
+                        width: 'auto',
+                        mt: '10px',
 
+                      }}
+                    />
+                    <AntSwitch
+                      style={{
+
+                        color: i18n.language === 'en' ? '#53cdc2' : '#53cdc2',
+                        backgroundColor: i18n.language === 'en' ? 'rgba(18,45,65,0.9)' : 'rgba(18,45,65,0.9)'
+                      }} checked={i18n.language === 'en'}
+                      onChange={handleLanguageChange}
+                      name="languageSwitch"
+                      inputProps={{ 'aria-label': 'ant design' }} />
+
+                    <img
+                      src={`${process.env.PUBLIC_URL}/assets/gb.svg`}
+                      alt="Logo"
+                      style={{
+                        height: '15px',
+                        width: 'auto',
+                        mt: '10px',
+
+                      }}
+                    />
+                  </Stack>
+                </FormGroup>
               </div>
             )}
             <div style={{ flexGrow: 1 }}></div>

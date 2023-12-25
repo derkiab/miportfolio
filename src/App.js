@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Description from './components/Description';
 import LightedZone from './components/LightedZone';
 import ApiUsage from './components/ApiUsage';
+import LanguageProvider from './components/LanguageProvider';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
@@ -17,9 +18,11 @@ function App() {
           <Route path="/api-usage" element={<ApiUsage />} />
           <Route path="/" element={
             <>
-              <Navbar />
-              <Description />
-              <LightedZone />
+              <LanguageProvider>
+                <Navbar />
+                <Description />
+                <LightedZone />
+              </LanguageProvider>
             </>
           } />
         </Routes>
