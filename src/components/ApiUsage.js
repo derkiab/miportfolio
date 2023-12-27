@@ -47,7 +47,7 @@ function ApiUsage() {
     i18n.changeLanguage(event.target.checked ? 'en' : 'es');
 
   };
-  const { t } = useTranslation();
+  //const { t } = useTranslation();
   useEffect(() => {
     const fetchData = async () => {
       await new Promise((resolve) => setTimeout(resolve, 1000));
