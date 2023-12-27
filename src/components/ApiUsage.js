@@ -80,6 +80,11 @@ function ApiUsage() {
         <Container maxWidth="xl" sx={{
           minHeight: '100%', pb: '15vh', transition: theme.breakpoints.up('md') ? 'opacity 0.8s ease-out, transform 0.8s ease-out' : 'none',
           opacity: inView1 ? 1 : 0,
+          [theme.breakpoints.down('sm')]: {
+            
+            opacity: 1,
+          },
+          
         }}>
           <Box
             sx={{
@@ -157,6 +162,7 @@ function ApiUsage() {
 
                 [theme.breakpoints.down('sm')]: {
                   fontSize: '1.8rem',
+                  opacity: 1,
                 },
               }}
             >
