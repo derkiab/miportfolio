@@ -21,7 +21,7 @@ function ApiUsage() {
   const theme = useTheme();
   const navigate = useNavigate();
   const codeString = 'GET https://satellitewatch.azurewebsites.net/satlocation/{name}?api_key=YOUR_API_KEY';
-  const codeString2 =`{
+  const codeString2 = `{
     "satellite": "<nombre del satélite>",
     "location": {
         "latitude": "<latitud>",
@@ -78,7 +78,7 @@ function ApiUsage() {
         }}
       >
         <Container maxWidth="xl" sx={{
-          minHeight: '100%', pb: '15vh', transition: 'opacity 0.8s ease-out, transform 0.8s ease-out',
+          minHeight: '100%', pb: '15vh', transition: theme.breakpoints.up('md') ? 'opacity 0.8s ease-out, transform 0.8s ease-out' : 'none',
           opacity: inView1 ? 1 : 0,
         }}>
           <Box
@@ -181,7 +181,7 @@ function ApiUsage() {
 
             </Typography>
             <Box
-              
+
               elevation={12}
               sx={{
                 position: 'relative',
@@ -506,7 +506,7 @@ function ApiUsage() {
                     color: '#000000',
                     fontFamily: 'Roboto, sans-serif',
                     fontSize: '1.1rem',
-                    
+
                     fontWeight: 'normal',
                     fontSmooth: 'always',
                     [theme.breakpoints.down('sm')]: {
