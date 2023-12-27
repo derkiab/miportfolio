@@ -7,6 +7,7 @@ import ApiUsage from './components/ApiUsage';
 import LanguageProvider from './components/LanguageProvider';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
+
 function App() {
 
 
@@ -15,7 +16,13 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route path="/api-usage" element={<ApiUsage />} />
+          <Route path="/astroAPI" element={
+            <>
+              <LanguageProvider>
+                <ApiUsage />
+                <LightedZone />
+              </LanguageProvider>
+            </>} />
           <Route path="/" element={
             <>
               <LanguageProvider>

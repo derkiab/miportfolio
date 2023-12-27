@@ -142,7 +142,7 @@ function Description() {
                     pt: '25vh',
                     [theme.breakpoints.down('sm')]: {
                         pt: '5vh',
-                        pl: '4vw',
+                        pl: '0vw',
                         mx: '0vw'
                     },
                 }}
@@ -574,7 +574,7 @@ function Description() {
                                     width: '100%',
                                     backgroundColor: '#0f172a',
                                 }}>
-                                    <CardActionArea component={Link} to="/api-usage" sx={{}}>
+                                    <CardActionArea component={Link} to="/astroAPI" sx={{}}>
                                         <CardMedia
                                             component="div"
                                             className="myCardMedia"
