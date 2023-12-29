@@ -268,7 +268,7 @@ function ApiUsage() {
                 Endpoint
               </Typography>
               <Grid container spacing={0} sx={{ mt: '2vh' }}>
-                <Grid item xs={1.5} sm={0.8} sx={{
+                <Grid item xs={2} sm={1.5} xl={2} sx={{
                   mt: '0.19vh', [theme.breakpoints.down('sm')]: {
                     mt: '0.1vh',
 
@@ -277,7 +277,8 @@ function ApiUsage() {
                   <Chip label="GET" variant="filled" sx={{
                     color: '#fff', backgroundColor: '#006e00',
                     [theme.breakpoints.down('sm')]: {
-                      fontSize: '0.7rem',
+                      fontSize: '0.6rem',
+                      size: 'small',
 
                     },
                   }} />
@@ -562,7 +563,7 @@ function ApiUsage() {
                     },
                   }}
                 >
-                  <Box component="span" sx={{ fontWeight: 'bold' }}>timestamp:</Box> La marca de tiempo de la ubicación del satélite. (Formato: YYYY-MMMM-DDDD HH:MM:SS)
+                  <Box component="span" sx={{ fontWeight: 'bold' }}>timestamp:</Box> La marca de tiempo de la ubicación del satélite. (Formato: YYYY-MMMM-DDDD HH:MM:SS) UTC
                 </Typography>
               </Typography>
               <Typography
