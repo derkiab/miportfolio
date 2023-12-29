@@ -10,7 +10,8 @@ export default function CircularColor({ visible }) {
         opacity: visible ? 1 : 0,
         transition: 'opacity 0.4s ease-out',
         
-        
+        mx: 'auto',
+        px: 'auto',
         position: 'absolute',
         top: 0,
         left: 0,
