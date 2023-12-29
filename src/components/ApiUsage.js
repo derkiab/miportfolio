@@ -18,17 +18,18 @@ import { solarizedlight } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 function ApiUsage() {
 
-  const [apiResponse, setApiResponse] = useState('');
+  /*const [apiResponse, setApiResponse] = useState(null);
 
   const handleClick = async () => {
     try {
-      const response = await fetch('https://satellitewatch.azurewebsites.net/satlocation/PLANTSAT?api_key=6bfced44-72df-487e-9003-8f40cf266628');
+      const response = await fetch('https://satellitewatch.azurewebsites.net/satlocation/PLANTSAT');
       const data = await response.json();
       setApiResponse(JSON.stringify(data, null, 2));
     } catch (error) {
       console.error('Error:', error);
     }
   };
+  */
 
   const [loading, setLoading] = useState(true);
   const theme = useTheme();
@@ -585,26 +586,8 @@ function ApiUsage() {
                 customStyle={{ fontSize: '1rem', backgroundColor: '#f5f5f5' }}>
                 {codeString3}
               </SyntaxHighlighter>
-              <Typography
-                sx={{
-                  color: '#000000',
-                  fontFamily: 'Roboto, sans-serif',
-                  fontSize: '1.5rem',
-                  fontWeight: 'bold',
-                  fontSmooth: 'always',
-                  mt: '2vh',
-                  mb: '2vh',
-                  [theme.breakpoints.down('sm')]: {
-                    fontSize: '1rem',
-                  },
-                }}
-              >
-                Respuesta real de la API al consultar la ISS (JSON)
-              </Typography>
-              <button onClick={handleClick}>Fetch Data</button>
-              <SyntaxHighlighter language="json" style={solarizedlight} customStyle={{ fontSize: '1rem', backgroundColor: '#f5f5f5' }}>
-                {apiResponse}
-              </SyntaxHighlighter>
+
+            
             </Box>
           </Box>
         </Container>
