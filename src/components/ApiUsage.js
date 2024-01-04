@@ -14,6 +14,7 @@ import FormGroup from '@mui/material/FormGroup';
 import Chip from '@mui/material/Chip';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { solarizedlight } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { t } from 'i18next';
 
 
 function ApiUsage() {
@@ -126,7 +127,7 @@ function ApiUsage() {
                     mb: '5vh',
                     fontSize: '0.8rem',
                   },
-                }}>Volver Atrás
+                }}>{t('goback')}
                 </Button>
               </Stack>
               <Stack sx={{ pl: '1vw' }} direction="row" spacing={2} alignItems="center">
@@ -197,7 +198,7 @@ function ApiUsage() {
                 },
               }}
             >
-              API RESTful desarrollada con Python y FastAPI para la obtención de datos astronómicos en tiempo real. La versión actual de la API es capaz de entregar la ubicación de los satelites Chilenos orbitando la Tierra, como también la ubicación de la Estación Espacial Internacional (ISS). En el futuro se incluiran mas caracteristicas.
+              {t('restApiDescription')}
 
             </Typography>
             <Box
@@ -234,7 +235,7 @@ function ApiUsage() {
                   },
                 }}
               >
-                Autenticación
+                {t('authentication')}
               </Typography>
               <Typography
                 sx={{
@@ -250,7 +251,7 @@ function ApiUsage() {
                   },
                 }}
               >
-                Para hacer uso de esta API, es necesario poseer una clave API. Cada solicitud debe incluir esta clave en la URL. Por el momento la clave API no es pública, pero siempre puedes contactarme si la necesitas.
+                {t('apiUsageKey')}
               </Typography>
               <Typography
                 sx={{
@@ -319,7 +320,7 @@ function ApiUsage() {
                   },
                 }}
               >
-                Este endpoint devuelve la ubicación actual de un satélite específico.
+                {t('satelliteLocationEndpoint')}
               </Typography>
               <Typography
                 sx={{
@@ -334,7 +335,7 @@ function ApiUsage() {
                   },
                 }}
               >
-                Parámetro
+                {t('parameter')}
               </Typography>
               <Typography
                 sx={{
@@ -363,7 +364,7 @@ function ApiUsage() {
                     },
                   }}
                 >
-                  <Box component="span" sx={{ fontWeight: 'bold' }}>name:</Box> El nombre del satélite que se quiere rastrear. Debe estar en mayúsculas.
+                  <Box component="span" sx={{ fontWeight: 'bold' }}>name:</Box> {t('satelliteName')}
                 </Typography>
               </Typography>
               <Typography
@@ -380,7 +381,7 @@ function ApiUsage() {
                   },
                 }}
               >
-                Ejemplo de solicitud
+                {t('exampleRequest')}
               </Typography>
               <SyntaxHighlighter language="javascript"
                 style={solarizedlight}
@@ -401,7 +402,7 @@ function ApiUsage() {
                   },
                 }}
               >
-                Ejemplo de respuesta de la API (JSON)
+                {t('exampleResponse')}
               </Typography>
               <SyntaxHighlighter language="json"
                 style={solarizedlight}
@@ -422,7 +423,7 @@ function ApiUsage() {
                   },
                 }}
               >
-                Descripción de la respuesta
+                {t('responseDescription')}
               </Typography>
               <Typography
                 sx={{
@@ -451,7 +452,7 @@ function ApiUsage() {
                     },
                   }}
                 >
-                  <Box component="span" sx={{ fontWeight: 'bold' }}>satellite:</Box> El nombre del satélite.
+                  <Box component="span" sx={{ fontWeight: 'bold' }}>satellite:</Box> {t('satellite')}
                 </Typography>
               </Typography>
               <Typography
@@ -479,7 +480,7 @@ function ApiUsage() {
                     },
                   }}
                 >
-                  <Box component="span" sx={{ fontWeight: 'bold' }}>latitude:</Box> La latitud de la ubicación del satélite.
+                  <Box component="span" sx={{ fontWeight: 'bold' }}>latitude:</Box> {t('latitude')}
                 </Typography>
               </Typography>
               <Typography
@@ -506,7 +507,7 @@ function ApiUsage() {
                     },
                   }}
                 >
-                  <Box component="span" sx={{ fontWeight: 'bold' }}>longitude:</Box> La longitud de la ubicación del satélite.
+                  <Box component="span" sx={{ fontWeight: 'bold' }}>longitude:</Box> {t('longitude')}
                 </Typography>
               </Typography>
               <Typography
@@ -535,7 +536,7 @@ function ApiUsage() {
                     },
                   }}
                 >
-                  <Box component="span" sx={{ fontWeight: 'bold' }}>elevation:</Box> La elevación de la ubicación del satélite en metros.
+                  <Box component="span" sx={{ fontWeight: 'bold' }}>elevation:</Box> {t('elevation')}
                 </Typography>
               </Typography>
               <Typography
@@ -563,7 +564,7 @@ function ApiUsage() {
                     },
                   }}
                 >
-                  <Box component="span" sx={{ fontWeight: 'bold' }}>timestamp:</Box> La marca de tiempo de la ubicación del satélite. (Formato: YYYY-MMMM-DDDD HH:MM:SS) UTC
+                  <Box component="span" sx={{ fontWeight: 'bold' }}>timestamp:</Box> {t('timestamp')}
                 </Typography>
               </Typography>
               <Typography
@@ -580,7 +581,7 @@ function ApiUsage() {
                   },
                 }}
               >
-                Respuesta real de la API al consultar la ISS (JSON)
+                {t('apiResponseExample')}
               </Typography>
               <SyntaxHighlighter language="json"
                 style={solarizedlight}
@@ -588,7 +589,7 @@ function ApiUsage() {
                 {codeString3}
               </SyntaxHighlighter>
 
-            
+
             </Box>
           </Box>
         </Container>
