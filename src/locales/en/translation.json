@@ -26,6 +26,23 @@
     "astroApiTitle": "astroAPI",
     "astroApiContent": "astroAPI is a RESTful API built with FastAPI, hosted on Azure Functions. This API delivers astronomical information from NASA in real time.",
     "aprilShort": "Apr 2023",
-    "januaryShort": "Jan 2023"
+    "januaryShort": "Jan 2023",
+    "restApiDescription": "RESTful API developed with Python and FastAPI for real-time astronomical data retrieval. The current version of the API is capable of providing the location of Chilean satellites orbiting the Earth, as well as the location of the International Space Station (ISS). More features will be included in the future.",
+    "authentication": "Authentication",
+    "apiUsageKey": "To use this API, you need to have an API key. Each request must include this key in the URL. Currently, the API key is not public, but you can always contact me if you need it.",
+    "satelliteLocationEndpoint": "This endpoint returns the current location of a specific satellite.",
+    "parameter": "Parameter",
+    "satelliteName": "The name of the satellite to be tracked. It must be in uppercase.",
+    "exampleRequest": "Request Example",
+    "exampleResponse": "Example API Response (JSON)",
+    "responseDescription": "Response Description",
+    "satellite": "The name of the satellite.",
+    "latitude": "The latitude of the satellite's location.",
+    "longitude": "The longitude of the satellite's location.",
+    "elevation": "The elevation of the satellite's location in meters.",
+    "timestamp": "The timestamp of the satellite's location. (Format: YYYY-MMMM-DDDD HH:MM:SS) UTC",
+    "apiResponseExample": "API Response Example when querying the ISS (JSON)",
+    "goback": "Go Back"
+    
     
 }

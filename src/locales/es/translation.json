@@ -26,5 +26,21 @@
     "astroApiTitle": "astroAPI",
     "astroApiContent": "astroAPI es una API RESTful desarrollada con FastAPI de Python, esta API permite la obtencion de información astronómica de la NASA en tiempo real",
     "aprilShort": "Abr 2023",
-    "januaryShort": "Ene 2023"
+    "januaryShort": "Ene 2023",
+    "restApiDescription": "API RESTful desarrollada con Python y FastAPI para la obtención de datos astronómicos en tiempo real. La versión actual de la API es capaz de entregar la ubicación de los satélites Chilenos orbitando la Tierra, como también la ubicación de la Estación Espacial Internacional (ISS). En el futuro se incluiran mas características.",
+    "authentication": "Autenticación",
+    "apiUsageKey": "Para hacer uso de esta API, es necesario poseer una clave API. Cada solicitud debe incluir esta clave en la URL. Por el momento la clave API no es pública, pero siempre puedes contactarme si la necesitas.",
+    "satelliteLocationEndpoint": "Este endpoint devuelve la ubicación actual de un satélite específico.",
+    "parameter": "Parámetro",
+    "satelliteName": "El nombre del satélite que se quiere rastrear. Debe estar en mayúsculas.",
+    "exampleRequest": "Ejemplo de solicitud",
+    "exampleResponse": "Ejemplo de respuesta de la API (JSON)",
+    "responseDescription": "Descripción de la respuesta",
+    "satellite": "El nombre del satélite.",
+    "latitude": "La latitud de la ubicación del satélite.",
+    "longitude": "La longitud de la ubicación del satélite.",
+    "elevation": "La elevación de la ubicación del satélite en metros.",
+    "timestamp": "La marca de tiempo de la ubicación del satélite. (Formato: YYYY-MMMM-DDDD HH:MM:SS) UTC",
+    "apiResponseExample": "Respuesta real de la API al consultar la ISS (JSON)",
+    "goback" : "Volver atrás"
 }
